@@ -7,5 +7,3 @@ CREATE TABLE images(
   phoneId INT,
   PRIMARY KEY (imageId)
 );
-
-/*sudo mysql -u root < database/Schema.sql

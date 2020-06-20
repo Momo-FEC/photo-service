@@ -6,8 +6,12 @@ app.use(bodyParser.json());
 app.listen(3001, () => {
   console.log('Listening on port 3001')
 })
-app.get('/', (req, res) => {
-  console.log('request success')
+app.get('/phone', (req, res) => {
+  db.images.findAll({ raw: true })
+  .then(function (data) {
+     res.send(data);
+     res.end();
+  })
 })
 
 

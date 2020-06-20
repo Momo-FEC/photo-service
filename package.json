@@ -4,9 +4,10 @@
   "description": "FEC photo ",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --detectOpenHandles",
     "build": "webpack -d --watch",
-    "set-data": "node ./database/data.js"
+    "set-data": "node ./database/data.js",
+    "build-schema": "sudo mysql -u root < database/Schema.sql"
   },
   "repository": {
     "type": "git",

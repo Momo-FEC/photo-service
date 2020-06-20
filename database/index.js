@@ -17,7 +17,7 @@ sequelize.authenticate()
 
 let phone = 1;
 
-module.exports.images = sequelize.define('images', {
+const images = sequelize.define('images', {
     imageId: {
       type: Sequelize.INTEGER,
       autoIncrement: true,
@@ -33,12 +33,12 @@ module.exports.images = sequelize.define('images', {
     timestamps: false
   })
 
-  module.exports.addPhone = function(phoneName, imageUrls){
-    console.log('phoneid', imageUrls)
+  const addPhone = function(phoneName, imageUrls){
     for(var i = 0; i < imageUrls.length; i++) {
-      var addedPhone = module.exports.images.build({phoneId: phone, imageUrl: imageUrls[i]});
+      var addedPhone = images.build({phoneId: phone, imageUrl: imageUrls[i]});
       addedPhone.save();
     }
     phone++
-    console.log('new phone ', phone)
   }
+
+  module.exports = {sequelize, addPhone, images};
