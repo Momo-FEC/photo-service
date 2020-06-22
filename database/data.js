@@ -1,7 +1,8 @@
 const faker = require('faker');
 const db = require('./index.js');
 
-var data = [];
+var data = [{phone: 'someName', images: ['https://fec-photos-carousel.s3-us-west-1.amazonaws.com/FEC+Photos/phone1.webp', 'https://fec-photos-carousel.s3-us-west-1.amazonaws.com/FEC+Photos/phone2.webp', 'https://fec-photos-carousel.s3-us-west-1.amazonaws.com/FEC+Photos/phone3.webp', 'https://fec-photos-carousel.s3-us-west-1.amazonaws.com/FEC+Photos/phone4.webp', 'https://fec-photos-carousel.s3-us-west-1.amazonaws.com/FEC+Photos/phone5.webp', 'https://fec-photos-carousel.s3-us-west-1.amazonaws.com/FEC+Photos/phone6.webp',
+'https://fec-photos-carousel.s3-us-west-1.amazonaws.com/FEC+Photos/phone7.webp']}];
 
 var imageUrls = [
 'https://fec-photos-carousel.s3-us-west-1.amazonaws.com/FEC+Photos/phone1.webp',
