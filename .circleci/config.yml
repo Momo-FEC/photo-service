@@ -12,6 +12,7 @@ jobs:
             - run: npm install
             - run: echo ${MYSQL_ROOT_PASSWORD}
             - run: npm run build-schema
+            - run: ${MYSQL_ROOT_PASSWORD}
             - run: npm run set-data
             - run: npm test
 workflows:
