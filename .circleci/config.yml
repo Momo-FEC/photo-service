@@ -10,6 +10,8 @@ jobs:
       - node/with-cache:
           steps:
             - run: npm install
+            - run: npm build-schema
+            - run: set-data
             - run: npm test
 workflows:
     build-and-test:

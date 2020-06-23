@@ -2,7 +2,7 @@ const mysql = require('mysql');
 const Sequelize = require('sequelize');
 const data = require('../config.js');
 
-const sequelize = new Sequelize ('photos', data.username, data.password, {
+const sequelize = new Sequelize ('photos', MYSQL_USERNAME || data.username, MYSQL_PASSWORD || data.password, {
   host: 'localhost',
   dialect: 'mysql'
 })
