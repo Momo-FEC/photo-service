@@ -10,7 +10,7 @@ jobs:
       - node/with-cache:
           steps:
             - run: npm install
-            - run: sudo mysql -u root -p MYSQL_ROOT_PASSWORD
+            - run: mysql -u root -p MYSQL_ROOT_PASSWORD
             - run: npm run build-schema
             - run: npm run set-data
             - run: npm test
