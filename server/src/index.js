@@ -13,13 +13,18 @@ app.get('/image', (req, res) => {
     imageId: 3
   }})
   .then(function (data) {
+    console.log(data)
      res.send(data);
      res.end();
   })
+  res.end();
 })
-app.get('/phone', (req, res) => {
+
+app.get('/phone/:Id', (req, res) => {
+  var currentId = req.params.Id;
+  console.log('id is ', req.params.Id)
   db.images.findAll({ where: {
-    phoneId: 3
+    phoneId: currentId
   }})
   .then(function (data) {
      res.send(data);
