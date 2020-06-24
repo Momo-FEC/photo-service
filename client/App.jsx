@@ -5,7 +5,7 @@ import Carousel from './Carousel.jsx';
 
 const Element = styled.div`
    width: 30%;
-   height: 720px;
+   height: 30%;
    `;
 const Main = styled.div`
    width: 58%;
@@ -23,7 +23,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       urls: [],
-      mainImg: 'https://fec-photos-carousel.s3-us-west-1.amazonaws.com/FEC+Photos/phone1.webp'
+      mainImg: ''
     }
     this.getUrls = this.getUrls.bind(this);
     this.setNewMain = this.setNewMain.bind(this);
@@ -36,13 +36,14 @@ class App extends React.Component {
   getUrls(phoneId) {
     $.ajax({
       method: 'GET',
-      url: 'http://localhost:3001/phone',
+      url: 'http://localhost:3001/phone/1',
       success: function(result) {
-        console.log(result)
         this.setState({urls: result})
+        this.setState({mainImg: result[0].imageUrl})
       }.bind(this)
     })
   }
+
   componentDidMount() {
     this.getUrls()
   }

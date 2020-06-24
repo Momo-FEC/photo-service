@@ -20,10 +20,11 @@ app.get('/image', (req, res) => {
   res.end();
 })
 
-app.get('/phone', (req, res) => {
-  console.log('working')
+app.get('/phone/:Id', (req, res) => {
+  var currentId = req.params.Id;
+  console.log('id is ', req.params.Id)
   db.images.findAll({ where: {
-    phoneId: 1
+    phoneId: currentId
   }})
   .then(function (data) {
      res.send(data);
