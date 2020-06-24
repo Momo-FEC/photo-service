@@ -2,6 +2,10 @@ import React from 'react';
 import $ from 'jquery';
 import styled from 'styled-components';
 import Carousel from './Carousel.jsx';
+// import { configure } from 'enzyme';
+// import Adapter from 'enzyme-adapter-react-16';
+
+// configure({adapter: new Adapter()});
 
 const Element = styled.div`
    width: 30%;
