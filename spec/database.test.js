@@ -12,11 +12,10 @@ require('mysql2/node_modules/iconv-lite').encodingExists('foo');
 afterAll(async () => {
   app.server.close()
   await new Promise(resolve => setTimeout(() => resolve(), 10000)); // avoid jest open handle error
-});
-
-afterAll(() => {
   return db.sequelize.close();
 });
+
+
 
 describe("Should test database", () => {
   test('should check first phone in database', done => {
@@ -30,7 +29,6 @@ describe("Should test database", () => {
       .catch((err) => {
         done(err);
       });
-    done();
   });
 
 
@@ -45,7 +43,6 @@ describe("Should test database", () => {
       .catch((err) => {
         done(err);
       });
-    done();
   });
 });
 
