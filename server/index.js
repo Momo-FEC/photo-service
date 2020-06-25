@@ -2,22 +2,22 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('../database/index.js');
 const app = express();
-app.use(express.static('../../public'));
+app.use(express.static('../public'));
 app.use(bodyParser.json());
 app.listen(3001, () => {
   console.log('Listening on port 3001')
 })
 
-app.get('/image', (req, res) => {
+
+app.get('/image/:Id', (req, res) => {
+  var currentId = req.params.Id;
   db.images.findAll({ where: {
-    imageId: 3
+    imageId: currentId
   }})
   .then(function (data) {
-    console.log(data)
      res.send(data);
      res.end();
   })
-  res.end();
 })
 
 app.get('/phone/:Id', (req, res) => {
@@ -31,6 +31,9 @@ app.get('/phone/:Id', (req, res) => {
      res.end();
   })
 })
+
+
+
 
 
 
