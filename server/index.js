@@ -4,10 +4,9 @@ const db = require('../database/index.js');
 const app = express();
 app.use(express.static('../public'));
 app.use(bodyParser.json());
-app.listen(3001, () => {
+app.server = app.listen(3001, () => {
   console.log('Listening on port 3001')
 })
-
 
 app.get('/image/:Id', (req, res) => {
   var currentId = req.params.Id;
