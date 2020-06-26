@@ -1,7 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import styled from 'styled-components';
-import Carousel from './Carousel.jsx';
+import Slider from './Carousel.jsx';
 import Icons from './Icons.jsx';
 import Display from './Display.jsx';
 // import { configure } from 'enzyme';
@@ -11,21 +11,19 @@ import Display from './Display.jsx';
 
 const Element = styled.div`
    padding-left: 24px;
-   height: 700px;
-   width: 40%;
+   height: 750px;
+   width: 45%;
    `;
 const Main = styled.div`
-
    height: 75%;
    width: 85%;
    float: right;
+   clear: right;
    margin: 0;
    display: block;
    `;
 const Slide = styled.div`
-
-   position: relative;
-   width: 12.5%;
+   width: 15%;
    height: 75%;
    display: inline-block;
    `;
@@ -53,7 +51,7 @@ class App extends React.Component {
   getUrls(phoneId) {
     $.ajax({
       method: 'GET',
-      url: 'http://localhost:3001/phone/1',
+      url: 'http://localhost:3001/phone/5',
       success: function(result) {
         this.setState({urls: result})
         this.setState({mainImg: result[0].imageUrl})
@@ -68,14 +66,12 @@ class App extends React.Component {
       return (
         <Element>
           <Slide>
-            <Carousel urls={this.state.urls} setNew={this.setNewMain}/>
+            <Slider urls={this.state.urls} setNew={this.setNewMain}/>
           </Slide>
           <Main>
             <Display image={this.state.mainImg}/>
           </Main>
-
           <Icons/>
-
         </Element>
       )
     }

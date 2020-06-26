@@ -6,25 +6,24 @@ const Buttons = styled.button`
    background-color: white;
    border: none;
    font-size: 60px;
-   margin-left: 20%;
+   margin-left: 15%;
 `;
 
 const List = styled.div`
-
-   padding-right: 30%;
    height: 500px;
-   overflow-x: hidden;
+   right: -17px;
    overflow-y: hidden;
+   overflow-x: hidden;
    `;
 const Selected = styled.img`
    border: 1px lightgrey solid;
-   height: 16%;
+   height: 14.5%;
    margin-bottom: 5px;
    opacity: 1;
    `;
 const Image = styled.img`
    border: 1px lightgrey solid;
-   height: 16%;
+   height: 14.5%;
    margin-bottom: 5px;
    opacity: .5;
    `;
@@ -34,10 +33,25 @@ class Carousel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      scrollPosition: 150,
       mainId: false
     }
     this.changeStyle = this.changeStyle.bind(this);
     this.changeId = this.changeId.bind(this);
+    this.scrollUp = this.scrollUp.bind(this);
+    this.scrollDown = this.scrollDown.bind(this);
+  }
+
+  scrollUp(amount) {
+    this.setState({scrollPosition: this.state.scrollPosition - amount})
+    document.getElementById('random').scrollTo({top: this.state.scrollPosition, behavior: 'smooth'})
+  }
+
+  scrollDown(amount) {
+    if(this.state.scrollPosition <= 450) {
+      this.setState({scrollPosition: this.state.scrollPosition + amount})
+      document.getElementById('random').scrollTo({top: this.state.scrollPosition, behavior: 'smooth'})
+    }
   }
 
   changeId(id) {
@@ -57,8 +71,8 @@ class Carousel extends React.Component {
   render() {
       return (
         <div>
-          <Buttons><i className="fa fa-chevron-up"></i></Buttons>
-          <List>
+          <Buttons onClick={() => {this.scrollUp(72.5)}}><i className="fa fa-chevron-up"></i></Buttons>
+          <List id='random'>
             {console.log(this.props)}
             {this.props.urls.map((url) => {
               if(url.imageId === (this.state.mainId || this.props.urls[0].imageId)) {
@@ -67,7 +81,7 @@ class Carousel extends React.Component {
               return <Image key={url.imageId} className='images' id={url.imageId} src={url.imageUrl} onClick={() => {this.props.setNew(url.imageUrl), this.changeId(url.imageId)}}></Image>
             })}
           </List>
-          <Buttons><i className="fa fa-chevron-down"></i></Buttons>
+          <Buttons onClick={() => {this.scrollDown(72.5)}}><i className="fa fa-chevron-down"></i></Buttons>
         </div>
       )
     }
