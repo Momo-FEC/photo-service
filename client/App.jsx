@@ -1,9 +1,11 @@
 import React from 'react';
 import $ from 'jquery';
 import styled from 'styled-components';
+
 import Slider from './Carousel.jsx';
 import Icons from './Icons.jsx';
 import Display from './Display.jsx';
+
 // import { configure } from 'enzyme';
 // import Adapter from 'enzyme-adapter-react-16';
 
