@@ -48,7 +48,7 @@ class Carousel extends React.Component {
   }
 
   scrollDown(amount) {
-    if(this.state.scrollPosition <= 450) {
+    if(this.state.scrollPosition <= 200) {
       this.setState({scrollPosition: this.state.scrollPosition + amount})
       document.getElementById('random').scrollTo({top: this.state.scrollPosition, behavior: 'smooth'})
     }
