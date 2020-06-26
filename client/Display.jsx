@@ -1,5 +1,4 @@
 import React from 'react';
-import $ from 'jquery';
 import styled from 'styled-components';
 
 const Image = styled.img`
