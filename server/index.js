@@ -5,31 +5,30 @@ const app = express();
 app.use(express.static('../public'));
 app.use(bodyParser.json());
 app.server = app.listen(3001, () => {
-  console.log('Listening on port 3001')
-})
+  console.log('Listening on port 3001');
+});
 
 app.get('/image/:Id', (req, res) => {
   var currentId = req.params.Id;
   db.images.findAll({ where: {
     imageId: currentId
   }})
-  .then(function (data) {
-     res.send(data);
-     res.end();
-  })
-})
+    .then(function (data) {
+      res.send(data);
+      res.end();
+    });
+});
 
 app.get('/phone/:Id', (req, res) => {
   var currentId = req.params.Id;
-  console.log('id is ', req.params.Id)
   db.images.findAll({ where: {
     phoneId: currentId
   }})
-  .then(function (data) {
-     res.send(data);
-     res.end();
-  })
-})
+    .then(function (data) {
+      res.send(data);
+      res.end();
+    });
+});
 
 
 

@@ -40,14 +40,17 @@ class App extends React.Component {
     super(props);
     this.state = {
       urls: [],
-      mainImg: ''
-    }
+      mainImg: '',
+      zoom: false
+    };
     this.getUrls = this.getUrls.bind(this);
     this.setNewMain = this.setNewMain.bind(this);
+    this.zoomFeature = this.zoomFeature.bind(this);
+    this.moveZoom = this.moveZoom.bind(this);
   }
 
   setNewMain(url) {
-    this.setState({mainImg: url})
+    this.setState({mainImg: url});
   }
 
   getUrls(phoneId) {
@@ -55,28 +58,54 @@ class App extends React.Component {
       method: 'GET',
       url: 'http://localhost:3001/phone/5',
       success: function(result) {
-        this.setState({urls: result})
-        this.setState({mainImg: result[0].imageUrl})
+        this.setState({urls: result});
+        this.setState({mainImg: result[0].imageUrl});
       }.bind(this)
-    })
+    });
+  }
+
+  moveZoom() {
+    var element = document.getElementById('zoomedImg');
+
+    element.addEventListener('mousemove', (e) => {
+      element.style.backgroundPositionX = -e.offsetX + 'px';
+      element.style.backgroundPositionY = -e.offsetY + 'px';
+    });
+  }
+
+  zoomFeature() {
+    this.setState(prevState => ({
+      zoom: !prevState.zoom
+    }));
   }
 
   componentDidMount() {
-    this.getUrls()
+    this.getUrls();
   }
   render() {
+    if (this.state.zoom === false) {
       return (
         <Element>
           <Slide>
             <Slider urls={this.state.urls} setNew={this.setNewMain}/>
           </Slide>
           <Main>
-            <Display image={this.state.mainImg}/>
+            <Display image={this.state.mainImg} zoomFunc={this.zoomFeature}/>
           </Main>
           <Icons/>
         </Element>
-      )
+      );
+    } else {
+      return (
+        <Element id='zoomedImg' style={{
+          overflow: 'hidden',
+          backgroundImage: 'url(' + this.state.mainImg + ')',
+          backgroundSize: '200%', backgroundRepeat: 'no-repeat'}}
+          onClick={this.zoomFeature} onMouseOver={() => { this.moveZoom(); }}>
+        </Element>
+      );
     }
+  }
 }
 
 export default App;

@@ -13,12 +13,12 @@ class App extends React.Component {
   }
 
   render() {
-      return (
-        <div>
-        <Image src={this.props.image}></Image>
-        </div>
-      )
-    }
+    return (
+      <div>
+        <Image src={this.props.image} onClick={this.props.zoomFunc}></Image>
+      </div>
+    );
+  }
 }
 
 export default App;
