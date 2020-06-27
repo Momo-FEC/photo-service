@@ -15,7 +15,7 @@ class App extends React.Component {
   render() {
       return (
         <div>
-        <Image src={this.props.image}></Image>
+        <Image src={this.props.image} onClick={this.props.zoomFunc}></Image>
         </div>
       )
     }

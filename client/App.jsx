@@ -40,10 +40,13 @@ class App extends React.Component {
     super(props);
     this.state = {
       urls: [],
-      mainImg: ''
+      mainImg: '',
+      zoom: false
     }
     this.getUrls = this.getUrls.bind(this);
     this.setNewMain = this.setNewMain.bind(this);
+    this.zoomFeature = this.zoomFeature.bind(this);
+    this.moveZoom = this.moveZoom.bind(this);
   }
 
   setNewMain(url) {
@@ -61,21 +64,44 @@ class App extends React.Component {
     })
   }
 
+  moveZoom() {
+    var element = document.getElementById('zoomedImg');
+
+    element.addEventListener("mousemove", (e) => {
+        element.style.backgroundPositionX = -e.offsetX + "px";
+        element.style.backgroundPositionY = -e.offsetY + "px";
+});
+  }
+
+  zoomFeature() {
+    this.setState(prevState => ({
+      zoom: !prevState.zoom
+    }));
+  }
+
   componentDidMount() {
     this.getUrls()
   }
   render() {
+    if(this.state.zoom === false) {
       return (
         <Element>
           <Slide>
             <Slider urls={this.state.urls} setNew={this.setNewMain}/>
           </Slide>
           <Main>
-            <Display image={this.state.mainImg}/>
+            <Display image={this.state.mainImg} zoomFunc={this.zoomFeature}/>
           </Main>
           <Icons/>
         </Element>
       )
+    } else {
+      return (
+        <Element id='zoomedImg' style={{overflow: 'hidden', backgroundImage: 'url(' + this.state.mainImg + ')', backgroundSize: '200%', backgroundRepeat: 'no-repeat'}} onClick={this.zoomFeature} onMouseOver={() => {this.moveZoom()}}>
+        {/* <img src={this.state.mainImg} style={{width: '180%', backgroundSize: 'cover'}} onClick={this.zoomFeature}/> */}
+      </Element>
+      )
+    }
     }
 }
 
