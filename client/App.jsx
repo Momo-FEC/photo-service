@@ -42,7 +42,7 @@ class App extends React.Component {
       urls: [],
       mainImg: '',
       zoom: false
-    }
+    };
     this.getUrls = this.getUrls.bind(this);
     this.setNewMain = this.setNewMain.bind(this);
     this.zoomFeature = this.zoomFeature.bind(this);
@@ -50,7 +50,7 @@ class App extends React.Component {
   }
 
   setNewMain(url) {
-    this.setState({mainImg: url})
+    this.setState({mainImg: url});
   }
 
   getUrls(phoneId) {
@@ -58,19 +58,19 @@ class App extends React.Component {
       method: 'GET',
       url: 'http://localhost:3001/phone/5',
       success: function(result) {
-        this.setState({urls: result})
-        this.setState({mainImg: result[0].imageUrl})
+        this.setState({urls: result});
+        this.setState({mainImg: result[0].imageUrl});
       }.bind(this)
-    })
+    });
   }
 
   moveZoom() {
     var element = document.getElementById('zoomedImg');
 
-    element.addEventListener("mousemove", (e) => {
-        element.style.backgroundPositionX = -e.offsetX + "px";
-        element.style.backgroundPositionY = -e.offsetY + "px";
-});
+    element.addEventListener('mousemove', (e) => {
+      element.style.backgroundPositionX = -e.offsetX + 'px';
+      element.style.backgroundPositionY = -e.offsetY + 'px';
+    });
   }
 
   zoomFeature() {
@@ -80,10 +80,10 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.getUrls()
+    this.getUrls();
   }
   render() {
-    if(this.state.zoom === false) {
+    if (this.state.zoom === false) {
       return (
         <Element>
           <Slide>
@@ -94,15 +94,18 @@ class App extends React.Component {
           </Main>
           <Icons/>
         </Element>
-      )
+      );
     } else {
       return (
-        <Element id='zoomedImg' style={{overflow: 'hidden', backgroundImage: 'url(' + this.state.mainImg + ')', backgroundSize: '200%', backgroundRepeat: 'no-repeat'}} onClick={this.zoomFeature} onMouseOver={() => {this.moveZoom()}}>
-        {/* <img src={this.state.mainImg} style={{width: '180%', backgroundSize: 'cover'}} onClick={this.zoomFeature}/> */}
-      </Element>
-      )
+        <Element id='zoomedImg' style={{
+          overflow: 'hidden',
+          backgroundImage: 'url(' + this.state.mainImg + ')',
+          backgroundSize: '200%', backgroundRepeat: 'no-repeat'}}
+          onClick={this.zoomFeature} onMouseOver={() => { this.moveZoom(); }}>
+        </Element>
+      );
     }
-    }
+  }
 }
 
 export default App;

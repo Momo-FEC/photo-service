@@ -29,27 +29,27 @@ class Icons extends React.Component {
   }
 
   render() {
-      return (
-        <div>
-          <Details>
-            <Images src="https://fec-photos-carousel.s3-us-west-1.amazonaws.com/Icons/Circle-icon-01.svg"/>
-            <p>Single Take Al</p>
-          </Details>
-          <Details>
-            <Images src="https://fec-photos-carousel.s3-us-west-1.amazonaws.com/Icons/5GReady.svg"/>
-            <p>5G Ready</p>
-          </Details>
-          <Details>
-            <Images src="https://fec-photos-carousel.s3-us-west-1.amazonaws.com/Icons/Super-Fast-Charging-01.svg"/>
-            <p>Super Fast Charging</p>
-          </Details>
-          <Last>
-            <Images src="https://fec-photos-carousel.s3-us-west-1.amazonaws.com/Icons/8K-icon-01.svg"/>
-            <p>8K Video</p>
-          </Last>
-        </div>
-      )
-    }
+    return (
+      <div>
+        <Details>
+          <Images src="https://fec-photos-carousel.s3-us-west-1.amazonaws.com/Icons/Circle-icon-01.svg"/>
+          <p>Single Take Al</p>
+        </Details>
+        <Details>
+          <Images src="https://fec-photos-carousel.s3-us-west-1.amazonaws.com/Icons/5GReady.svg"/>
+          <p>5G Ready</p>
+        </Details>
+        <Details>
+          <Images src="https://fec-photos-carousel.s3-us-west-1.amazonaws.com/Icons/Super-Fast-Charging-01.svg"/>
+          <p>Super Fast Charging</p>
+        </Details>
+        <Last>
+          <Images src="https://fec-photos-carousel.s3-us-west-1.amazonaws.com/Icons/8K-icon-01.svg"/>
+          <p>8K Video</p>
+        </Last>
+      </div>
+    );
+  }
 }
 
 export default Icons;
