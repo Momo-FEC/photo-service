@@ -8,6 +8,10 @@ app.server = app.listen(3001, () => {
   console.log('Listening on port 3001');
 });
 
+app.get('/', (req, res) => {
+  res.redirect('/1')
+});
+
 app.get('/image/:Id', (req, res) => {
   var currentId = req.params.Id;
   db.images.findAll({ where: {
