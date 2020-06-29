@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('../database/index.js');
 const app = express();
+const cors = require('cors');
+app.use(cors());
 app.use('/:Id', express.static('../public'));
 app.use(bodyParser.json());
 app.server = app.listen(3001, () => {
