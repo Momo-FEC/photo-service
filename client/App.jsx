@@ -23,6 +23,7 @@ const Main = styled.div`
    clear: right;
    margin: 0;
    display: block;
+   cursor: zoom-in;
    `;
 const Slide = styled.div`
    width: 15%;
@@ -56,7 +57,7 @@ class App extends React.Component {
   getUrls(phoneId) {
     $.ajax({
       method: 'GET',
-      url: 'http://localhost:3001/phone/5',
+      url: `http://localhost:3001/phone${window.location.pathname}`,
       success: function(result) {
         this.setState({urls: result});
         this.setState({mainImg: result[0].imageUrl});
@@ -98,6 +99,7 @@ class App extends React.Component {
     } else {
       return (
         <Element id='zoomedImg' style={{
+          cursor: 'zoom-out',
           overflow: 'hidden',
           backgroundImage: 'url(' + this.state.mainImg + ')',
           backgroundSize: '200%', backgroundRepeat: 'no-repeat'}}

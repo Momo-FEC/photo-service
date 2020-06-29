@@ -21,6 +21,9 @@ const Details = styled.div`
 const Images = styled.img`
    width: 40%;
 `;
+const Text = styled.p`
+   font-family: Arial;
+`;
 
 
 class Icons extends React.Component {
@@ -33,19 +36,19 @@ class Icons extends React.Component {
       <div>
         <Details>
           <Images src="https://fec-photos-carousel.s3-us-west-1.amazonaws.com/Icons/Circle-icon-01.svg"/>
-          <p>Single Take Al</p>
+          <Text>Single Take Al</Text>
         </Details>
         <Details>
           <Images src="https://fec-photos-carousel.s3-us-west-1.amazonaws.com/Icons/5GReady.svg"/>
-          <p>5G Ready</p>
+          <Text>5G Ready</Text>
         </Details>
         <Details>
           <Images src="https://fec-photos-carousel.s3-us-west-1.amazonaws.com/Icons/Super-Fast-Charging-01.svg"/>
-          <p>Super Fast Charging</p>
+          <Text>Super Fast Charging</Text>
         </Details>
         <Last>
           <Images src="https://fec-photos-carousel.s3-us-west-1.amazonaws.com/Icons/8K-icon-01.svg"/>
-          <p>8K Video</p>
+          <Text>8K Video</Text>
         </Last>
       </div>
     );

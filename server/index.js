@@ -2,10 +2,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('../database/index.js');
 const app = express();
-app.use(express.static('../public'));
+app.use('/:Id', express.static('../public'));
 app.use(bodyParser.json());
 app.server = app.listen(3001, () => {
   console.log('Listening on port 3001');
+});
+
+app.get('/', (req, res) => {
+  res.redirect('/1')
 });
 
 app.get('/image/:Id', (req, res) => {
