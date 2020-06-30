@@ -8,6 +8,13 @@ const TopButton = styled.button`
    font-size: 60px;
    margin-left: 15%;
 `;
+const TopArrow = styled.img`
+   width: 60px;
+   opacity: .5;
+`;
+const BottomArrow = styled.img`
+   width: 60px;
+`;
 const BottomButton = styled.button`
    background-color: white;
    border: none;
@@ -55,15 +62,15 @@ class Carousel extends React.Component {
       document.getElementById('list').scrollTo({top: this.state.scrollPosition, behavior: 'smooth'});
     }
     if (this.state.scrollPosition === 0) {
-      document.getElementById('top').style.color = 'grey';
-      document.getElementById('bottom').style.color = 'black';
+      document.getElementById('top').style.opacity = '.5';
+      document.getElementById('bottom').style.opacity = '1';
     } else if (this.state.scrollPosition > 0) {
         if (this.state.scrollPosition > ((this.props.urls.length - 5) * (72.5+5))) {
-          document.getElementById('bottom').style.color = 'grey';
-          document.getElementById('top').style.color = 'black';
+          document.getElementById('bottom').style.opacity = '.5';
+          document.getElementById('top').style.opacity = '1';
         } else {
-          document.getElementById('bottom').style.color = 'black';
-          document.getElementById('top').style.color = 'black';
+          document.getElementById('bottom').style.opacity = '1';
+          document.getElementById('top').style.opacity = '1';
         }
     }
 
@@ -78,15 +85,15 @@ class Carousel extends React.Component {
       console.log(this.state.scrollPosition, "scrolled down")
     }
     if (this.state.scrollPosition === 0) {
-      document.getElementById('top').style.color = 'grey';
-      document.getElementById('bottom').style.color = 'black';
+      document.getElementById('top').style.opacity = '.5';
+      document.getElementById('bottom').style.opacity = '1';
     } else if (this.state.scrollPosition > 0) {
         if (this.state.scrollPosition > ((this.props.urls.length - 5) * (72.5))) {
-          document.getElementById('bottom').style.color = 'grey';
-          document.getElementById('top').style.color = 'black';
+          document.getElementById('bottom').style.opacity = '.5';
+          document.getElementById('top').style.opacity = '1';
         } else {
-          document.getElementById('bottom').style.color = 'black';
-          document.getElementById('top').style.color = 'black';
+          document.getElementById('bottom').style.opacity = '1';
+          document.getElementById('top').style.opacity = '1';
         }
     }
   }
@@ -108,7 +115,7 @@ class Carousel extends React.Component {
   render() {
     return (
       <div>
-        <TopButton id='top' onClick={() => { this.scrollUp(72.5); }}><i className="fa fa-chevron-up"></i></TopButton>
+        <TopButton onClick={() => { this.scrollUp(72.5); }}><TopArrow id='top' src='https://fec-photos-carousel.s3-us-west-1.amazonaws.com/Arrows/navigate-up-arrow.png'/></TopButton>
         <List id='list'>
           {this.props.urls.map((url) => {
             if (url.imageId === (this.state.mainId || this.props.urls[0].imageId)) {
@@ -117,7 +124,7 @@ class Carousel extends React.Component {
             return <Image key={url.imageId} className='images' id={url.imageId} src={url.imageUrl} onClick={() => { this.props.setNew(url.imageUrl), this.changeId(url.imageId); }}></Image>
           })}
         </List>
-        <BottomButton id='bottom' onClick={() => { this.scrollDown(72.5); }}><i className="fa fa-chevron-down"></i></BottomButton>
+        <BottomButton onClick={() => { this.scrollDown(72.5); }}><BottomArrow id='bottom' src='https://fec-photos-carousel.s3-us-west-1.amazonaws.com/Arrows/arrow-down-sign-to-navigate.png'/></BottomButton>
       </div>
     );
   }
