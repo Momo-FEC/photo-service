@@ -57,7 +57,7 @@ class App extends React.Component {
   getUrls(phoneId) {
     $.ajax({
       method: 'GET',
-      url: `http://localhost:3001/phone${window.location.pathname}`,
+      url: `http://127.0.0.1:3001/phone${window.location.pathname}`,
       success: function(result) {
         this.setState({urls: result});
         this.setState({mainImg: result[0].imageUrl});
