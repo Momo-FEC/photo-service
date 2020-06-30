@@ -16,8 +16,8 @@ const Element = styled.div`
    height: 900px;
    `;
 const Main = styled.div`
-   padding-right: 10%;
-   width: 70%;
+   padding-right: 20%;
+   width: 65%;
    height: 70%;
    float: right;
    clear: right;

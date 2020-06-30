@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Image = styled.img`
   margin-right: 5%;
-  width: 90%;
+  width: 120%;
   margin-top: 5%;
   overflow: hidden;
    `;
