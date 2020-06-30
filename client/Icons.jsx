@@ -2,16 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Last = styled.div`
-  padding-left: 4%;
-  padding-right: 4%;
+  padding-left: 3%;
+  padding-right: 3%;
   text-align: center;
   font-size: 14px;
   width: 16%;
   float: left;
 `;
 const Details = styled.div`
-   padding-left: 4%;
-   padding-right: 4%;
+   padding-left: 3%;
+   padding-right: 3%;
    text-align: center;
    font-size: 14px;
    width: 16%;

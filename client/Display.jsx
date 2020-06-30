@@ -5,6 +5,7 @@ const Image = styled.img`
   margin-right: 5%;
   width: 90%;
   margin-top: 5%;
+  overflow: hidden;
    `;
 
 class App extends React.Component {

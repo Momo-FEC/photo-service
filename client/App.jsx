@@ -13,12 +13,12 @@ import Display from './Display.jsx';
 
 const Element = styled.div`
    padding-left: 24px;
-   height: 750px;
-   width: 45%;
+   height: 900px;
    `;
 const Main = styled.div`
-   height: 75%;
-   width: 85%;
+   padding-right: 10%;
+   width: 70%;
+   height: 70%;
    float: right;
    clear: right;
    margin: 0;
@@ -86,6 +86,7 @@ class App extends React.Component {
   render() {
     if (this.state.zoom === false) {
       return (
+        <div>
         <Element>
           <Slide>
             <Slider urls={this.state.urls} setNew={this.setNewMain}/>
@@ -95,6 +96,7 @@ class App extends React.Component {
           </Main>
           <Icons/>
         </Element>
+        </div>
       );
     } else {
       return (
