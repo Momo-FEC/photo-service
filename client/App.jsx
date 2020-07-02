@@ -12,7 +12,6 @@ import Display from './Display.jsx';
 // configure({adapter: new Adapter()});
 
 const Element = styled.div`
-   padding-left: 24px;
    height: 900px;
    `;
 const Main = styled.div`
@@ -24,6 +23,7 @@ const Main = styled.div`
    margin: 0;
    display: block;
    cursor: zoom-in;
+   overflow: hidden;
    `;
 const Slide = styled.div`
    width: 15%;

@@ -2,8 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Image = styled.img`
-  margin-right: 5%;
-  width: 120%;
+  width: 140%;
   margin-top: 5%;
   overflow: hidden;
    `;
