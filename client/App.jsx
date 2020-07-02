@@ -15,13 +15,11 @@ const Element = styled.div`
    height: 900px;
    `;
 const Main = styled.div`
-   padding-right: 20%;
-   width: 65%;
+   width: 85%;
    height: 70%;
-   float: right;
    clear: right;
    margin: 0;
-   display: block;
+   display: inline-block;
    cursor: zoom-in;
    overflow: hidden;
    `;
